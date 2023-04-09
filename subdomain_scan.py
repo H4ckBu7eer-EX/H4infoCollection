@@ -1,2 +1,3 @@
 def subdomain_scan():
-    print("子域名")
+    print("==========子域名查询==========")
+    

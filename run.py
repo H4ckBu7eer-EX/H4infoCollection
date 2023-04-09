@@ -23,6 +23,7 @@ import c_scan
 import dir_scan
 import alive_probe
 import sensitive_asset_locate
+import FOFA_GUI
 
 def print_name():
     functions_name = {
@@ -106,7 +107,12 @@ while True:
     elif user_input == "6":
         print("f")
     elif user_input == "7":
-        print("g")
+        print("==========FOFA==========")
+        selet_api = input("1=>设置API,2=>FOFA搜索: ")
+        if selet_api == "1":
+            fofa.fofa_api()
+        elif selet_api == "2":
+            FOFA_GUI()
     elif user_input == "8":
         print("h")
     elif user_input == "9":

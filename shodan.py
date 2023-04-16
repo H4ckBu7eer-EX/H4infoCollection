@@ -1,0 +1,2 @@
+def shodan():
+    print("SHODAN")

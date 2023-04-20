@@ -1,28 +1,5 @@
-import beian_query
-import subdomain_scan
-import port_scan
-import retest_platform
-import whois_query
-import dns_query
-import fofa
-import shodan
-import zoomeye
-import eagle_eye
-import google_hacking
-import github_search
-import cert_query
-import domain_enum
-import app_scan
-import wechat_scan
-import mini_program_scan
-import pc_app_scan
-import ip_to_domain
-import real_ip_lookup
-import ip_reg_query
-import c_scan
-import dir_scan
-import alive_probe
-import sensitive_asset_locate
+from moudlue import beian_query, subdomain_scan
+
 
 def print_name():
     functions_name = {

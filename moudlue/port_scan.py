@@ -14,7 +14,7 @@ def GetLanIpAddress(iface):
 
 def PublicNetPortScan(Ip_Address):
     session = requests.session()
-    fofaAPI_file = open('fofaAPI3.inf', 'r', encoding='utf-8')
+    fofaAPI_file = open('../fofaAPI3.inf', 'r', encoding='utf-8')
     fofaAPI = fofaAPI_file.readlines()
     Email = fofaAPI[1].split('=')[1].replace('\n', '')
     Key = fofaAPI[2].split('=')[1].replace('\n', '')

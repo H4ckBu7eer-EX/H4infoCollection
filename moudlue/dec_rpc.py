@@ -200,7 +200,7 @@ def dec_rpc():
         q.put(i)
     q.join()
 
-    output=open('log.txt','a',encoding='utf-8')
+    output=open('../log.txt', 'a', encoding='utf-8')
     for osinfo_dict in RESULT_LIST1:
         for ip in osinfo_dict.keys():
             output.write("[*] " + ip + "\n")

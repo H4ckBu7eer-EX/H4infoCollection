@@ -142,7 +142,7 @@ def spider(q,b,brute):
     Label_4.config(text="扫描任务已结束") 
 
 def Backup(b,host,title,ip,prot,domain,server):
-    f=open('dir.txt','r')
+    f=open('dir.txt', 'r')
     dirs=f.readlines()
     while not b.empty():
         u=b.get_nowait()
@@ -204,7 +204,7 @@ def result(host,title,ip,port,domain,server,backup=None):
 
 def save():
     li=[]
-    file_path=filedialog.asksaveasfilename(initialdir=os.path.abspath('.'),title=u'保存文件',filetypes=[('csv File','.csv')])
+    file_path=filedialog.asksaveasfilename(initialdir=os.path.abspath(''), title=u'保存文件', filetypes=[('csv File', '.csv')])
     f=open(file_path+'.csv','a+',encoding='utf_8_sig',newline='')
     winter=csv.writer(f)
     column=['序号','HOST','标题','IP','端口','域名','服务','备份文件']
@@ -256,7 +256,7 @@ def about():
     about_label3.place(relx =0.100,rely =0.600,relwidth=0.800,relheight=0.090)
 
 if __name__ == '__main__':
-    with open('fofa.json','r')as fp:
+    with open('fofa.json', 'r')as fp:
         json_data = json.load(fp)
         fofa_email=json_data['fofa_email']
         fofa_key=json_data['fofa_key']

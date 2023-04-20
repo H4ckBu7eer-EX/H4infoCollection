@@ -168,15 +168,7 @@ def worker(q,a):
 
 
 def dec_rpc():
-    '''
-    parser = ArgumentParser()
-    parser.add_argument('-i', '--ip', help=u'IP Address,expample:192.168.0.1, 192.168.0.1-100, 192.168.0.1/24, ip.txt', required=True,type=str)
-    parser.add_argument('-t', '--threads', help=u'threads, default 20', default=20, type=int)
-    parser.add_argument('-a', '--attack', help=u'choose attack:   0:all 1:OSInfo 2:NetWorkInfo, defualt 0', default=0, type=int)
-    parser.add_argument('-o', '--output', help=u'Output result, default: log.txt', default='log.txt', type=FileType('a+'))
-
-    args = parser.parse_args()
-    '''
+    print("==========DECRPC信息查询==========")
     ip=input('请输入目标IP：')
     threads=input('请输入线程（默认20,回车表示默认）：')
     attack=input("请输入攻击模式：\n0.全部\n1.系统信息\n2.网络信息 (默认为0):")

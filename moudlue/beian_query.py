@@ -1,15 +1,22 @@
-import webbrowser
+import requests
+import json
 
-def beian_query():
+
+def beian_query(url):
+    # API:https://api.ooomn.com/api/icp?domain=
     print("==========备案查询==========")
-    url_input = input("输入查询的相关信息: ")
-    print("==========天眼查==========")
-    url = f"https://www.tianyancha.com/search?key={url_input}"
-    webbrowser.open(url)
-    print("==========爱企查==========")
-    url = f"https://aiqicha.baidu.com/s?q={url_input}"
-    webbrowser.open(url)
-    print("==========企查查==========")
-    url = f"https://www.qcc.com/web/search?key={url_input}"
-    webbrowser.open(url)
+    api_url = f'https://api.ooomn.com/api/icp?domain={url}'
+    header_windows = {"Upgrade-Insecure-Requests": '1',
+                      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+                      }
+    session = requests.session()
+    re = session.get(api_url, verify=False, headers=header_windows).text
+    results = json.loads(re)
+    status = results['msg']
+    if status == 'success':
+        print(
+            f'姓名：{results["name"]}\n域名:{results["siteindex"]}\n类型：{results["nature"]}\nICP备案：{results["icp"]}\n备案时间：{results["time"]}')
+    else:
+        print("查询失败，可能该域名没有备案")
+        print(results)
 

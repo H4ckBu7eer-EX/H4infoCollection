@@ -83,7 +83,7 @@ def LanPortScan(C_Lan_Ip_Address, port):
 
 
 def port_scan():
-    print("端口扫描")
+    print("==========端口扫描==========")
     print('扫描本地局域网请按1，扫描外网服务器请按2')
     index = int(input(":"))
     if index == 1:
@@ -97,6 +97,3 @@ def port_scan():
         ipaddress = input("请输入需要扫描的外网IP:")
         PublicNetPortScan(ipaddress)
 
-
-if __name__ == '__main__':
-    port_scan()

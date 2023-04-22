@@ -1,7 +1,16 @@
 from moudlue import beian_query, subdomain_scan
 
 
-def print_name():
+
+def hostin():
+    target = input("输入目标: ")
+    with open("host.txt", "w") as f:
+        f.write(target)
+        f.close
+
+
+
+def print_name1():
     functions_name = {
         "1": "备案查询",
         "2": "子域名",
@@ -33,6 +42,22 @@ def print_name():
     for key in functions_name:
         print(key + ": " + functions_name[key])
 
+
+
+def print_name2():
+    functions_name = {
+        "1": "Aopo",
+        "2": "SbScan",
+        "3": "DCERPC",
+        "4": "otherTools",
+        "5": "otherTools",
+    }
+    print("==========菜单==========")
+    for key in functions_name:
+        print(key + ": " + functions_name[key])
+
+
+
 '''
 func_dict = {
     "1": beian_query,
@@ -63,60 +88,106 @@ func_dict = {
 }
 '''
 
-while True:
-    print_name()
-    user_input = input("选择数字,exit=>退出,menu=>菜单: ")
-    if user_input == "exit":
-        break
-    elif user_input == "menu":
-        print_name()
-    elif user_input == "1":
-        beian_query.beian_query()
-    elif user_input == "2":
-        subdomain_scan.subdomain_scan()
-    elif user_input == "3":
-        print("c")
-    elif user_input == "4":
-        print("d")
-    elif user_input == "5":
-        print("e")
-    elif user_input == "6":
-        print("f")
-    elif user_input == "7":
-        print("g")
-    elif user_input == "8":
-        print("h")
-    elif user_input == "9":
-        print("i")
-    elif user_input == "10":
-        print("j")
-    elif user_input == "11":
-        print("k")
-    elif user_input == "12":
-        print("l")
-    elif user_input == "13":
-        print("m")
-    elif user_input == "14":
-        print("n")
-    elif user_input == "15":
-        print("o")
-    elif user_input == "16":
-        print("p")
-    elif user_input == "17":
-        print("q")
-    elif user_input == "18":
-        print("r")
-    elif user_input == "19":
-        print("s")
-    elif user_input == "20":
-        print("t")
-    elif user_input == "21":
-        print("u")
-    elif user_input == "22":
-        print("v")
-    elif user_input == "23":
-        print("w")
-    elif user_input == "24":
-        print("x")
-    elif user_input == "25":
-        print("y")
+
+
+def extranet():
+    while True:
+        print_name1()
+        user_input = input("选择数字,exit=>退出,menu=>菜单: ")
+        if user_input == "exit":
+            break
+        elif user_input == "menu":
+            print_name1()
+        elif user_input == "1":
+            beian_query.beian_query()
+        elif user_input == "2":
+            subdomain_scan.subdomain_scan()
+        elif user_input == "3":
+            print("c")
+        elif user_input == "4":
+            print("d")
+        elif user_input == "5":
+            print("e")
+        elif user_input == "6":
+            print("f")
+        elif user_input == "7":
+            print("g")
+        elif user_input == "8":
+            print("h")
+        elif user_input == "9":
+            print("i")
+        elif user_input == "10":
+            print("j")
+        elif user_input == "11":
+            print("k")
+        elif user_input == "12":
+            print("l")
+        elif user_input == "13":
+            print("m")
+        elif user_input == "14":
+            print("n")
+        elif user_input == "15":
+            print("o")
+        elif user_input == "16":
+            print("p")
+        elif user_input == "17":
+            print("q")
+        elif user_input == "18":
+            print("r")
+        elif user_input == "19":
+            print("s")
+        elif user_input == "20":
+            print("t")
+        elif user_input == "21":
+            print("u")
+        elif user_input == "22":
+            print("v")
+        elif user_input == "23":
+            print("w")
+        elif user_input == "24":
+            print("x")
+        elif user_input == "25":
+            print("y")
+
+
+
+def intranet():
+    while True:
+        print_name2()
+        user_input = input("选择数字,exit=>退出,menu=>菜单: ")
+        if user_input == "exit":
+            break
+        elif user_input == "menu":
+            print_name2()
+        elif user_input == "1":
+            print("Aopo")
+        elif user_input == "2":
+            print("SbScan")
+        elif user_input == "3":
+            print("Other")
+        elif user_input == "4":
+            print("Other")
+
+
+
+def mode():
+    print("1.内网模式\n2.外网模式")
+    selcet = int(input("模式选择："))
+    if selcet == 1:
+        intranet()
+    elif selcet == 2:
+        extranet()
+
+
+
+def main():
+    hostin()
+    mode()
+
+
+
+if __name__ == "__main__":
+    try:
+        main()
+    except:
+        pass

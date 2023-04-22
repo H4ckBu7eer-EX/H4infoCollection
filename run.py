@@ -22,7 +22,7 @@ def print_name1():
         "8": "SHODAN",
         "9": "ZOOMEYE",
         "10": "鹰眼",
-        "11": "GOOGLE HACKING",
+        "11": "搜索引擎 HACKING",
         "12": "github搜索",
         "13": "证书查询",
         "14": "域名枚举",
@@ -36,7 +36,8 @@ def print_name1():
         "22": "C段扫描",
         "23": "目录扫描",
         "24": "存活探测",
-        "25": "敏感资产定位"
+        "25": "敏感资产定位",
+        "26": "JS信息提取"
     }
     print("==========菜单==========")
     for key in functions_name:
@@ -148,6 +149,8 @@ def extranet():
             print("x")
         elif user_input == "25":
             print("y")
+        elif user_input == "26":
+            print("z")
 
 
 

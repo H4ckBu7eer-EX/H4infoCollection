@@ -1,3 +1,4 @@
+from logo import *
 from moudlue import beian_query, subdomain_scan
 
 
@@ -184,6 +185,7 @@ def mode():
 
 
 def main():
+    logo()
     hostin()
     mode()
 

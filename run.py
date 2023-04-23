@@ -167,7 +167,6 @@ def print_name1():
 com_1 = '''
 指令：
     菜单/menu  - 输出所有支持的模块
-    关于/about - 关于作者
     退出/exit  - 退出工具
 '''
 

@@ -1,5 +1,6 @@
 import requests
 
+from H4infoCollection.moudlue.github_search import github_search
 from logo import *
 from style import print_red,print_blue,print_green,print_white,print_yellow,print_black
 from moudlue import beian_query, subdomain_scan,scan_js
@@ -216,6 +217,7 @@ def input_com():
         elif user_input == "11":
             print("k")
         elif user_input == "12":
+            github_search()
             print("l")
         elif user_input == "13":
             print("m")

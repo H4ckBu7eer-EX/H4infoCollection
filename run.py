@@ -2,7 +2,7 @@ import requests
 
 from logo import *
 from style import print_red,print_blue,print_green,print_white,print_yellow,print_black
-from moudlue import beian_query, subdomain_scan
+from moudlue import beian_query, subdomain_scan,scan_js
 
 # 0为内网渗透模式
 # 1为外网渗透模式
@@ -179,7 +179,7 @@ def one_print():
         yiyantext = response.json()['hitokoto']
         print(f'{Fore.LIGHTMAGENTA_EX}=={yiyantext}=={Fore.RESET}')
     except:
-        print(f'{Fore.LIGHTMAGENTA_EX}==珍惜眼下，做好未来铺垫=={Fore.RESET}')
+        print(f'{Fore.LIGHTMAGENTA_EX}==没网你收集你妈信息呢=={Fore.RESET}')
 
 def input_com():
     while True:
@@ -244,7 +244,8 @@ def input_com():
         elif user_input == "25":
             print("y")
         elif user_input == "26":
-            print("js提取")
+            scan_js.main()
+            # print("js提取")
 
 
 def main():

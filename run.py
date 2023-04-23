@@ -1,4 +1,5 @@
 from logo import *
+from style import print_red,print_blue,print_green,print_white,print_yellow,print_black
 from moudlue import beian_query, subdomain_scan
 
 # 0为内网渗透模式
@@ -36,11 +37,11 @@ com = '''
 '''
 
 
-def hostin():
-    target = input("输入目标: ")
-    with open("host.txt", "w") as f:
-        f.write(target)
-        f.close
+# def hostin():
+#     target = input("输入目标: ")
+#     with open("host.txt", "w") as f:
+#         f.write(target)
+#         f.close
 
 
 def print_name1():
@@ -93,35 +94,35 @@ def print_name1():
 #         print(Fore.YELLOW + key + Fore.GREEN + ": " + functions_name[key] + Fore.RESET)
 
 
-'''
-func_dict = {
-    "1": beian_query,
-    "2": subdomain_scan,
-    "3": port_scan,
-    "4": retest_platform,
-    "5": whois_query,
-    "6": dns_query,
-    "7": fofa,
-    "8": shodan,
-    "9": zoomeye,
-    "10": eagle_eye,
-    "11": google_hacking,
-    "12": github_search,
-    "13": cert_query,
-    "14": domain_enum,
-    "15": app_scan,
-    "16": wechat_scan,
-    "17": mini_program_scan,
-    "18": pc_app_scan,
-    "19": ip_to_domain,
-    "20": real_ip_lookup,
-    "21": ip_reg_query,
-    "22": c_scan,
-    "23": dir_scan,
-    "24": alive_probe,
-    "25": sensitive_asset_locate
-}
-'''
+# '''
+# func_dict = {
+#     "1": beian_query,
+#     "2": subdomain_scan,
+#     "3": port_scan,
+#     "4": retest_platform,
+#     "5": whois_query,
+#     "6": dns_query,
+#     "7": fofa,
+#     "8": shodan,
+#     "9": zoomeye,
+#     "10": eagle_eye,
+#     "11": google_hacking,
+#     "12": github_search,
+#     "13": cert_query,
+#     "14": domain_enum,
+#     "15": app_scan,
+#     "16": wechat_scan,
+#     "17": mini_program_scan,
+#     "18": pc_app_scan,
+#     "19": ip_to_domain,
+#     "20": real_ip_lookup,
+#     "21": ip_reg_query,
+#     "22": c_scan,
+#     "23": dir_scan,
+#     "24": alive_probe,
+#     "25": sensitive_asset_locate
+# }
+# '''
 
 
 # def extranet():
@@ -237,7 +238,7 @@ def input_com():
 
 def main():
     logo()
-    print(f'{Fore.GREEN}{com_1}{Fore.RESET}')
+    print_green(com_1)
     input_com()
     # hostin()
     # mode()

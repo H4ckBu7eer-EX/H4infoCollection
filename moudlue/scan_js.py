@@ -64,7 +64,6 @@ def extract_domain(url):
 
 
 def run(url):
-    # url = 'http://www.csgxgc.com/blank142111.html'
     req = browse_webpage(url)
     for i in parse_js_links(req, ):
         if i.startswith("/") and not i.startswith("//"):

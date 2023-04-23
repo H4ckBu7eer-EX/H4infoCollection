@@ -180,7 +180,7 @@ def input_com():
             url = 'https://v1.hitokoto.cn/'
             response = requests.get(url)
             yiyantext=response.json()['hitokoto']
-            print(f'{Fore.LIGHTMAGENTA_EX}{yiyantext}{Fore.RESET}')
+            print(f'{Fore.LIGHTMAGENTA_EX}=={yiyantext}=={Fore.RESET}')
             print(f'{Fore.LIGHTGREEN_EX}拜拜！{Fore.RESET}')
             break
         # 显示这个菜单

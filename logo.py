@@ -58,3 +58,4 @@ def logo():
     print(
         "This Tool By:{}H4ckBu7eer{} Team,Member:{}soryecker{},{}Tug0u_Fenr4r{},{}EX{}".format(Fore.LIGHTRED_EX, Fore.WHITE,Fore.BLUE, Fore.WHITE, Fore.GREEN,Fore.WHITE,Fore.LIGHTMAGENTA_EX,
                                                                                     Fore.WHITE))
+

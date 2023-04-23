@@ -1,6 +1,39 @@
 from logo import *
 from moudlue import beian_query, subdomain_scan
 
+# 0为内网渗透模式
+# 1为外网渗透模式
+modo = 1
+
+com = '''
+1.备案查询
+2.子域名
+3.端口扫描
+4.重测平台
+5.whois查询
+6:dns查询
+7.FOFA
+8.SHODAN
+9.ZOOMEYE
+10.鹰眼
+11.HACKING
+12.github搜索
+13.证书查询
+14.域名枚举
+15.APP扫描
+16.公众号扫描
+17.小程序扫描
+18.PC应用程序扫描
+19.IP反查域名
+20.真实IP查找
+21.IP注册信息查询
+22.C段扫描
+23.目录扫描
+24.存活探测
+25.敏感资产定位
+26.JS信息提
+27.退出
+'''
 
 
 def hostin():
@@ -8,7 +41,6 @@ def hostin():
     with open("host.txt", "w") as f:
         f.write(target)
         f.close
-
 
 
 def print_name1():
@@ -38,26 +70,27 @@ def print_name1():
         "23": "目录扫描",
         "24": "存活探测",
         "25": "敏感资产定位",
-        "26": "JS信息提取"
+        "26": "JS信息提取",
+
     }
-    print("==========菜单==========")
+    print(Fore.BLUE + "==========菜单==========" + Fore.RESET)
     for key in functions_name:
-        print(key + ": " + functions_name[key])
+        print(Fore.YELLOW + key + Fore.GREEN + ": " + functions_name[key] + Fore.RESET)
 
 
-
-def print_name2():
-    functions_name = {
-        "1": "Aopo",
-        "2": "SbScan",
-        "3": "DCERPC",
-        "4": "otherTools",
-        "5": "otherTools",
-    }
-    print("==========菜单==========")
-    for key in functions_name:
-        print(key + ": " + functions_name[key])
-
+# def print_name2():
+#     functions_name = {
+#         "1": "Aopo",
+#         "2": "SbScan",
+#         "3": "DCERPC",
+#         "4": "otherTools",
+#         "5": "otherTools",
+#         "6": "返回全部菜单",
+#         "7": "退出工具",
+#     }
+#     print(Fore.BLUE + "==========菜单==========" + Fore.RESET)
+#     for key in functions_name:
+#         print(Fore.YELLOW + key + Fore.GREEN + ": " + functions_name[key] + Fore.RESET)
 
 
 '''
@@ -91,15 +124,64 @@ func_dict = {
 '''
 
 
+# def extranet():
+#     while True:
+#         print_name1()
+#         user_input = input("选择数字,exit=>退出,menu=>菜单: ")
 
-def extranet():
+
+# def intranet():
+#     while True:
+#         print_name2()
+#         user_input = input("请输入指令: ")
+#         if user_input == "exit":
+#             break
+#         elif user_input == "menu":
+#             print_name2()
+#         elif user_input == "1":
+#             print("Aopo")
+#         elif user_input == "2":
+#             print("SbScan")
+#         elif user_input == "3":
+#             print("Other")
+#         elif user_input == "4":
+#             print("Other")
+#         elif user_input == "5":
+#             print("Other")
+#         elif user_input == "6":
+#             break
+#         elif user_input == "7":
+#             print("Other")
+
+
+# def mode():
+#     print("1.内网渗透\n2.外网渗透")
+#     selcet = int(input("模式选择："))
+#     if selcet == 1:
+#         intranet()
+#     elif selcet == 2:
+#         extranet()
+
+
+com_1 = '''
+指令：
+    菜单/menu  - 输出所有支持的模块
+    关于/about - 关于作者
+    退出/exit  - 退出工具
+'''
+
+
+def input_com():
     while True:
-        print_name1()
-        user_input = input("选择数字,exit=>退出,menu=>菜单: ")
-        if user_input == "exit":
+        user_input = input('请输入指令: ')
+        # 退出
+        if user_input == "exit" or user_input == "退出":
+            print(f'{Fore.LIGHTGREEN_EX}拜拜！{Fore.RESET}')
             break
-        elif user_input == "menu":
+        # 显示这个菜单
+        elif user_input == "menu" or user_input == "菜单":
             print_name1()
+        # 备案查询
         elif user_input == "1":
             beian_query.beian_query()
         elif user_input == "2":
@@ -153,42 +235,12 @@ def extranet():
         elif user_input == "26":
             print("z")
 
-
-
-def intranet():
-    while True:
-        print_name2()
-        user_input = input("选择数字,exit=>退出,menu=>菜单: ")
-        if user_input == "exit":
-            break
-        elif user_input == "menu":
-            print_name2()
-        elif user_input == "1":
-            print("Aopo")
-        elif user_input == "2":
-            print("SbScan")
-        elif user_input == "3":
-            print("Other")
-        elif user_input == "4":
-            print("Other")
-
-
-
-def mode():
-    print("1.内网模式\n2.外网模式")
-    selcet = int(input("模式选择："))
-    if selcet == 1:
-        intranet()
-    elif selcet == 2:
-        extranet()
-
-
-
 def main():
     logo()
-    hostin()
-    mode()
-
+    print(f'{Fore.GREEN}{com_1}{Fore.RESET}')
+    input_com()
+    # hostin()
+    # mode()
 
 
 if __name__ == "__main__":

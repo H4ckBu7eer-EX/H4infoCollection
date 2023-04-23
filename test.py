@@ -1,9 +1,9 @@
 import requests
 from bs4 import BeautifulSoup
 
-def google_hack(site):
+def google_hack(site,num,payload):
     # 构造搜索链接
-    url = f"https://www.google.com/search?q=site%3A{site}"
+    url = f"https://search.modalogi.com/search?q=site:{site}%20AND%20{payload}&pageno={num}"
     # 添加请求头
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"}
@@ -20,9 +20,10 @@ def google_hack(site):
 
 
 
-def baidu_hack(site):
-    # 构造搜索链接
-    url = f"https://www.baidu.com/s?wd=site%3A{site}"
+def baidu_hack(site,num,payload):
+    rnum=(num-1)*10   # 构造搜索链接
+    url = f"https://www.baidu.com/s?ie=utf-8&wd=site:{site}%20AND%20{payload}&pn={rnum}"
+    print(url)
     # 添加请求头
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"}
@@ -34,6 +35,7 @@ def baidu_hack(site):
     search_results = soup.find_all("div", class_="result c-container ")
     # 提取每个搜索结果的网址
     urls = [result.find("a")["href"] for result in search_results]
+    print(urls)
     # 返回所有的网址
     return urls
 
@@ -88,7 +90,11 @@ search_dict = {
     "filetype:xls": ""
 }
 
-# Convert the search_dict dictionary to a list
+
 search_list = list(search_dict.keys())
 
 print(search_list)
+
+for rpayload in search_list:
+    for num in range(1,4):
+        baidu_hack("bilibili.com",num,rpayload)

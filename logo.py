@@ -1,6 +1,7 @@
 import random
 from colorama import Fore
 
+
 def logo():
     logo1 = '''
         ooooo   ooooo       .o             oooo        oooooooooo.               ooooooooo                              
@@ -51,11 +52,10 @@ def logo():
     '''
     logs = [logo1, logo2, logo3]
     print(random.choice(logs))
-    #args = get_args()
-    #print("网卡：", args.iface)
-    #print("网卡IP:", get_if_addr(args.iface))
-    #print("网卡MAC:", get_if_hwaddr(args.iface))
     print(
-        "This Tool By:{}H4ckBu7eer{} Team,Member:{}soryecker{},{}Tug0u_Fenr4r{},{}EX{}".format(Fore.LIGHTRED_EX, Fore.WHITE,Fore.BLUE, Fore.WHITE, Fore.GREEN,Fore.WHITE,Fore.LIGHTMAGENTA_EX,
-                                                                                    Fore.WHITE))
-
+        "This Tool By : {}H4ckBu7eer{} Team"
+        "Member:{}soryecker{},{}Tug0u_Fenr4r{},{}EX{}".format(Fore.LIGHTRED_EX,
+                                                              Fore.WHITE, Fore.BLUE,
+                                                              Fore.WHITE, Fore.GREEN,
+                                                              Fore.WHITE, Fore.LIGHTMAGENTA_EX,
+                                                              Fore.WHITE))

@@ -1,3 +1,5 @@
+import requests
+
 from logo import *
 from style import print_red,print_blue,print_green,print_white,print_yellow,print_black
 from moudlue import beian_query, subdomain_scan
@@ -170,18 +172,22 @@ com_1 = '''
     退出/exit  - 退出工具
 '''
 
+def one_print():
+    url = 'https://v1.hitokoto.cn/'
+    try:
+        response = requests.get(url)
+        yiyantext = response.json()['hitokoto']
+        print(f'{Fore.LIGHTMAGENTA_EX}=={yiyantext}=={Fore.RESET}')
+    except:
+        print(f'{Fore.LIGHTMAGENTA_EX}==珍惜眼下，做好未来铺垫=={Fore.RESET}')
 
 def input_com():
     while True:
         user_input = input('请输入指令: ')
         # 退出
         if user_input == "exit" or user_input == "退出":
-            import requests
-            url = 'https://v1.hitokoto.cn/'
-            response = requests.get(url)
-            yiyantext=response.json()['hitokoto']
-            print(f'{Fore.LIGHTMAGENTA_EX}=={yiyantext}=={Fore.RESET}')
             print(f'{Fore.LIGHTGREEN_EX}拜拜！{Fore.RESET}')
+            one_print()
             break
         # 显示这个菜单
         elif user_input == "menu" or user_input == "菜单":
@@ -238,7 +244,8 @@ def input_com():
         elif user_input == "25":
             print("y")
         elif user_input == "26":
-            print("z")
+            print("js提取")
+
 
 def main():
     logo()

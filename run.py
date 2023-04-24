@@ -75,6 +75,7 @@ def print_name1():
         "24": "存活探测",
         "25": "敏感资产定位",
         "26": "JS信息提取",
+        "27": "CMS指纹扫描",
 
     }
     print(Fore.BLUE + "==========菜单==========" + Fore.RESET)
@@ -245,9 +246,9 @@ def input_com():
             print("x")
         elif user_input == "25":
             print("y")
+        # js提取
         elif user_input == "26":
             scan_js.main()
-            # print("js提取")
 
 
 def main():

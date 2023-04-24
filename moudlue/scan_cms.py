@@ -1,10 +1,14 @@
 import hashlib
 import json
-
 import requests
-
 from H4infoCollection.style import print_green, print_red
 
+headers = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36',
+    'Accept-Language': 'en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7',
+    'Accept-Encoding': 'gzip, deflate, br',
+    'Connection': 'keep-alive'
+}
 
 def get_md5(url, head):
     try:
@@ -16,14 +20,33 @@ def get_md5(url, head):
     except:
         pass
 
+def get(url, head=None):
+    if head is None:
+        head = headers
+    try:
+        con = requests.get(url=url, headers=head).text
+        return con
+    except:
+        pass
+
+# 删除最后的斜杆
+def de_x(url):
+    url = str(url)
+    if url.startswith('/'):
+        return url[:-1]
+    else:
+        return url
+
 
 def get_keyword(url, head):
     try:
-        con = requests.get(url=url, headers=head).text
-        reditList = con.history  # 可以看出获取的是一个地址序列
-        print(reditList)
-        if con:
-            return 1
+        # print(url)
+        con = requests.get(url=url, headers=head)
+        # reditList = con.history  # 可以看出获取的是一个地址序列
+        # print(reditList)
+        if '200' in str(con):
+            if con.text:
+                return 1
     except:
         pass
 
@@ -45,37 +68,40 @@ def scan_cms_finger(url, headers, json_file):
                 # print(f.read())
         except:
             print_red('[+]cms扫描字典读取失败！')
+
     # https://www.yue365.com/movie/
     # 遍历所有对象和行
     # print(data['objects'][0]['rows'])
     # https://wikidiff.com/
-    for obj in data['objects'][0]['rows']:
-        if obj[4] == 'md5':
-            md5 = get_md5(url + obj[2], headers)
-            if md5 == obj[3]:
-                print_green(obj[1])
-                break
-        if obj[4] == 'keyword':
-            keyword = get_keyword(url + obj[2], headers)
-            if keyword == 1:
-                print_green(obj[1])
-                # break
 
+
+    # for obj in data['objects'][0]['rows']:
+    #     if obj[4] == 'md5':
+    #         md5 = get_md5(url + obj[2], headers)
+    #         if md5 == obj[3]:
+    #             print_green('md5:' + obj[1])
+    #             # break
+    #     if obj[4] == 'keyword':
+    #         url_a = obj[2].replace('\\', '')
+    #         keyword = get_keyword(url + url_a, headers)
+    #         if keyword == 1:
+    #             print_green('keyword:' + obj[1])
+    #             # break
+
+
+    # for obj in data['objects'][1]['rows']:
+    #     if obj[2] in get(url):
+    #         print_green(str(obj[1]))
+
+    for obj in data['objects'][2]['rows']:
+        # print(obj[2])
+        if ' || ' in obj[2]:
+            obj_list = obj[2].split(' || ')
+            for i in obj_list:
+                con = get(url)
+                if i in con:
+                    print(i)
     return '检测不到'
-
-
-def str_to_md5(s):
-    m = hashlib.md5()
-    m.update(s.encode('utf-8'))
-    return m.hexdigest()
-
-
-headers = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36',
-    'Accept-Language': 'en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7',
-    'Accept-Encoding': 'gzip, deflate, br',
-    'Connection': 'keep-alive'
-}
 
 
 def main():

@@ -1,9 +1,10 @@
 import requests
 
-from H4infoCollection.moudlue.github_search import github_search
+from moudlue import scan_cms
+from moudlue.github_search import github_search
 from logo import *
-from style import print_red,print_blue,print_green,print_white,print_yellow,print_black
-from moudlue import beian_query, subdomain_scan,scan_js
+from style import print_red, print_blue, print_green, print_white, print_yellow, print_black
+from moudlue import beian_query, subdomain_scan, scan_js
 
 # 0为内网渗透模式
 # 1为外网渗透模式
@@ -174,6 +175,7 @@ com_1 = '''
     退出/exit  - 退出工具
 '''
 
+
 def one_print():
     url = 'https://v1.hitokoto.cn/'
     try:
@@ -182,6 +184,7 @@ def one_print():
         print(f'{Fore.LIGHTMAGENTA_EX}=={yiyantext}=={Fore.RESET}')
     except:
         print(f'{Fore.LIGHTMAGENTA_EX}==没网你收集你妈信息呢=={Fore.RESET}')
+
 
 def input_com():
     while True:
@@ -249,14 +252,15 @@ def input_com():
         # js提取
         elif user_input == "26":
             scan_js.main()
+        # cms扫描
+        elif user_input == "27":
+            scan_cms.main()
 
 
 def main():
     logo()
     print_green(com_1)
     input_com()
-    # hostin()
-    # mode()
 
 
 if __name__ == "__main__":

@@ -1,10 +1,8 @@
-import json
-
-import requests
 from scapy.all import *
 from scapy.layers.inet import TCP, IP
 from scapy.layers.l2 import ARP, Ether
-
+import fofa
+from colorama import Fore
 
 def GetLanIpAddress(iface):
     localhost = get_if_addr(iface)
@@ -12,51 +10,11 @@ def GetLanIpAddress(iface):
     return C_Lan_Ip_Address
 
 
-def PublicNetPortScan(Ip_Address):
-    session = requests.session()
-    fofaAPI_file = open('../fofaAPI3.inf', 'r', encoding='utf-8')
-    fofaAPI = fofaAPI_file.readlines()
-    Email = fofaAPI[1].split('=')[1].replace('\n', '')
-    Key = fofaAPI[2].split('=')[1].replace('\n', '')
-    print(Email)
-    print(Key)
-    api_url = "https://fofa.info/api/v1/host/{}?email={}&key={}".format(Ip_Address, Email, Key)
-    print(api_url)
-    header_windows = {'Upgrade-Insecure-Requests': '1',
-                       'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
-                       }
-    header_linux = {}
-    header_android = {}
-    header_mac = {}
-    headers = input("请输入需要使用的header,直接回车使用默认->\n1.Windows(默认)\n2.Linux\n3.安卓\n4.苹果\n:")
-    if headers == '1' or headers == "":
-        rs = session.get(api_url, verify=False, headers=header_windows)
-        rs_text = rs.text
-        results = json.loads(rs_text)
-        ports = results['port']
-        for aliveport in ports:
-            print('[*]{}:{}'.format(Ip_Address, aliveport))
-    if headers == '2':
-        rs = session.get(api_url, verify=False, headers=header_linux)
-        rs_text = rs.text
-        results = json.loads(rs_text)
-        ports = results['port']
-        for aliveport in ports:
-            print('[*]{}:{}'.format(Ip_Address, aliveport))
-    if headers == '3':
-        rs = session.get(api_url, verify=False, headers=header_android)
-        rs_text = rs.text
-        results = json.loads(rs_text)
-        ports = results['port']
-        for aliveport in ports:
-            print('[*]{}:{}'.format(Ip_Address, aliveport))
-    if headers == '4':
-        rs = session.get(api_url, verify=False, headers=header_mac)
-        rs_text = rs.text
-        results = json.loads(rs_text)
-        ports = results['port']
-        for aliveport in ports:
-            print('[*]{}:{}'.format(Ip_Address, aliveport))
+def PublicNetPortScan(Ip_Address, email, key):
+    results = fofa.normal_query(Ip_Address, email, key)
+    ports = results['port']
+    for aliveport in ports:
+        print(f'{Fore.GREEN}[*]{Fore.WHITE}{Ip_Address}:{aliveport}')
 
 
 def LanPortScan(C_Lan_Ip_Address, port):
@@ -71,9 +29,9 @@ def LanPortScan(C_Lan_Ip_Address, port):
                 if response:
                     if response.haslayer(TCP):
                         if response.getlayer(TCP).flags == 18:
-                            print("[*]{}:{} Open!".format(C_Lan_Ip_Address, port))
+                            print(f"{Fore.GREEN}[*]{Fore.WHITE}{C_Lan_Ip_Address}:{ port} Open!")
                         else:
-                            print("[!]{}:{} Close!".format(C_Lan_Ip_Address, port))
+                            print(f"{Fore.RED}[!]{Fore.WHITE}{C_Lan_Ip_Address}:{port} Close!")
             except Exception as ex:
                 print(ex)
         else:
@@ -95,5 +53,6 @@ def port_scan():
                 scanthreading.start()
     if index == 2:
         ipaddress = input("请输入需要扫描的外网IP:")
-        PublicNetPortScan(ipaddress)
-
+        email=input('请输入你的FOFAAPI邮箱：')
+        key=input('请输入你的FOFAAPIKey：')
+        PublicNetPortScan(ipaddress,email,key)

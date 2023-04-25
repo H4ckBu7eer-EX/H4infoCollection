@@ -1,26 +1,56 @@
 import threading
 
 import requests
-from colorama import Fore,Back,Style
+from colorama import Fore, Back, Style
 
-def dir_scan(url,path):
-    test_url=url+path
-    code=requests.get(test_url).status_code
-    if code ==200:
-        print(f"{Fore.GREEN}[*]{Fore.WHITE}{test_url} Code:{Fore.GREEN}{code}")
-    else:
-        print(f"{Fore.RED}[!]{Fore.WHITE}{test_url} Code:{Fore.RED}{code}")
+from H4infoCollection.style import print_green, print_red
 
 
+def dir_scan(url, path: str):
+    if (not path == '') or (not path is None):
+        path = path.replace('\n', '')
+    test_url = url + path
+    try:
+        code = requests.get(test_url)
+        if code.status_code == 200:
+            print(f"{Fore.GREEN}[+][{len(code.text)}]{Fore.WHITE}{test_url} Code:{Fore.GREEN}{code.status_code}{Fore.RESET}")
+        elif code == 403:
+            print(f"{Fore.YELLOW}[!][{len(code.text)}]{Fore.WHITE}{test_url} Code:{Fore.YELLOW}{code.status_code}{Fore.RESET}")
+        elif code == 302:
+            print(f"{Fore.YELLOW}[!][{len(code.text)}]{Fore.WHITE}{test_url} Code:{Fore.YELLOW}{code.status_code}{Fore.RESET}")
+    except:
+        pass
 
 
 def read_dic(file):
-    data=open(file,'r',encoding='utf-8').readlines()
+    data = open(file, 'r', encoding='utf-8').readlines()
     return data
 
-def dir_scan_thread_main(url,file):
-    for lines in read_dic(file):
-        main_threading=threading.Thread(target=dir_scan,args=(url,lines,))
-        main_threading.start()
 
-dir_scan_thread_main('http://h4ckbu7eer.top','test_dic.txt')
+def dir_scan_thread_main(url, file='test_dic.txt'):
+    for lines in read_dic(file):
+        main_threading = threading.Thread(target=dir_scan, args=(url, lines,))
+        main_threading.start()
+        main_threading.join()
+
+
+# 'http://baidu.com','test_dic.txt'
+def main():
+    print_green('[+]当前模式为路径扫描')
+    print_red('退出请输入"退出/exit"')
+    while True:
+        url = input('请输入URL: ')
+        file = input('请输入字典目录(默认使用工具预设字典): ')
+        if '退出' == url or 'exit' == url:
+            break
+        else:
+            if file is None or file == '':
+                dir_scan_thread_main(url)
+                print('=' * 10)
+            else:
+                dir_scan_thread_main(url, file)
+                print('=' * 10)
+
+
+if __name__ == '__main__':
+    main()

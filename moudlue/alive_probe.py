@@ -2,8 +2,7 @@ import os
 from datetime import datetime
 
 
-def alive_probe():
-    ip = input('请输入探测IP:')
+def alive_probe(ip):
     dt = datetime.today()
     if ip != "":
         try:

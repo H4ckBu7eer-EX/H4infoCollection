@@ -40,16 +40,19 @@ def main():
     print_red('退出请输入"退出/exit"')
     while True:
         url = input('请输入URL: ')
-        file = input('请输入字典目录(默认使用工具预设字典): ')
-        if '退出' == url or 'exit' == url:
-            break
+        if (url == '') or (url is None):
+            print_red('[!]没输入url你扫你妈呢？')
         else:
-            if file is None or file == '':
-                dir_scan_thread_main(url)
-                print('=' * 10)
+            file = input('请输入字典目录(默认使用工具预设字典): ')
+            if '退出' == url or 'exit' == url:
+                break
             else:
-                dir_scan_thread_main(url, file)
-                print('=' * 10)
+                if file is None or file == '':
+                    dir_scan_thread_main(url)
+                    print('=' * 10)
+                else:
+                    dir_scan_thread_main(url, file)
+                    print('=' * 10)
 
 
 if __name__ == '__main__':

@@ -1,10 +1,11 @@
 import requests
 
+from H4infoCollection.moudlue.dir_scan import dir_scan
 from moudlue import scan_cms
 from moudlue.github_search import github_search
 from logo import *
 from style import print_red, print_blue, print_green, print_white, print_yellow, print_black
-from moudlue import beian_query, subdomain_scan, scan_js
+from moudlue import beian_query, subdomain_scan, scan_js,dir_scan
 
 # 0为内网渗透模式
 # 1为外网渗透模式
@@ -243,8 +244,9 @@ def input_com():
             print("u")
         elif user_input == "22":
             print("v")
+        # 目录扫描
         elif user_input == "23":
-            print("w")
+            dir_scan.main()
         elif user_input == "24":
             print("x")
         elif user_input == "25":

@@ -1,24 +1,19 @@
-import datetime
 import fofa
 from scapy.all import *
-from scapy.layers.inet import TCP, IP
 from scapy.layers.l2 import ARP, Ether
 
-apifile = open('fofaAPI.inf', 'r', encoding='utf-8').read()
-email = apifile.split('Email=')[1].split('Key=')[0].split('\n')[0]
-key = apifile.split('Email=')[1].split('Key=')[1].split('\n')[0]
 time = datetime.now().strftime('%Y-%m-%d %H:%M')
 
 
-def c_ip_get(url):
+def c_ip_get(url,email,key):
     results = fofa.normal_query(url, email, key)
     ip = results['ip']
     return ip
 
 
-def c_scan_public(url):
+def c_scan_public(url,email,key):
     log = open('c-scanlog_public.log', 'a', encoding='utf-8')
-    ip = c_ip_get(url)
+    ip = c_ip_get(url,email,key)
     resulte = fofa.hightlevel_query(ip, email, key, 'C')
     C_ = resulte['results']
     for ips in C_:
@@ -53,5 +48,3 @@ def c_scan_lan_thread_main(ip):
         start = threading.Thread(target=c_scan_lan_arp, args=(c_ip + str(i),))
         start.start()
 
-
-c_scan_lan_thread_main('192.168.77.85')

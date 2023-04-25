@@ -3,7 +3,7 @@ from colorama import Fore
 import datetime
 
 
-def dns_query(domain, mode):
+def dns_query(domain, mode='A'):
     mode_list = ['A', 'MX', 'NS', 'CNAME']
     if mode in mode_list:
         answers = dns.resolver.resolve(domain, mode)

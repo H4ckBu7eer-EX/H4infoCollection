@@ -2,6 +2,15 @@ import requests
 import json
 import base64
 
+from H4infoCollection.style import print_green, print_red
+
+def fofa_get(query_word):
+    qbase64 = base64.b64encode(query_word.encode('utf-8'))
+    header = {'Upgrade-Insecure-Requests': '1',
+              'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+              }
+    api_url = f"https://fofa.info/api/v1/search/all?email={email}&key={key}&qbase64={qbase64.decode()}"
+
 def normal_query(url,email,key):
     '''普通搜索'''
     api_url = "https://fofa.info/api/v1/host/{}?email={}&key={}".format(url, email, key)
@@ -37,11 +46,23 @@ def hightlevel_query(url,email,key,mod):
     #证书查询
     if mod == "cert":
         query_word=f'cert="{url}"'
-        qbase64 = base64.b64encode(query_word.encode('utf-8'))
-        header = {'Upgrade-Insecure-Requests': '1',
-                  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
-                  }
-        api_url = f"https://fofa.info/api/v1/search/all?email={email}&key={key}&qbase64={qbase64.decode()}"
+
         rs = session.get(api_url, headers=header).text
         results = json.loads(rs)
         return results
+
+def main():
+    print_green('[+]当前模式为fofa查询模块')
+    print_red('退出请输入"退出/exit"')
+    while True:
+
+        url = input('请输入URL: ')
+        if '退出' == url or 'exit' == url:
+            break
+        else:
+            scan_cms_finger(url, json_file='cms指纹.xml', headers=headers)
+            print('=' * 10)
+
+
+if __name__ == '__main__':
+    main()

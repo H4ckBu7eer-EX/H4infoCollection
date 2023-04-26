@@ -3,7 +3,7 @@ from selenium import webdriver
 
 from selenium.webdriver.chrome.options import Options
 
-from style import print_red, print_green
+from H4infoCollection.style import print_red, print_green
 
 
 # def get_js_api(js_code):

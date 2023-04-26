@@ -1,6 +1,6 @@
 import requests
 
-from H4infoCollection.moudlue.dir_scan import dir_scan
+from modules.dir_scan import dir_scan
 from modules import scan_cms
 from modules.github_search import github_search
 from logo import *
@@ -42,13 +42,6 @@ com = '''
 '''
 
 
-# def hostin():
-#     target = input("输入目标: ")
-#     with open("host.txt", "w") as f:
-#         f.write(target)
-#         f.close
-
-
 def print_name1():
     functions_name = {
         "1": "备案查询",
@@ -83,91 +76,6 @@ def print_name1():
     print(Fore.BLUE + "==========菜单==========" + Fore.RESET)
     for key in functions_name:
         print(Fore.YELLOW + key + Fore.GREEN + ": " + functions_name[key] + Fore.RESET)
-
-
-# def print_name2():
-#     functions_name = {
-#         "1": "Aopo",
-#         "2": "SbScan",
-#         "3": "DCERPC",
-#         "4": "otherTools",
-#         "5": "otherTools",
-#         "6": "返回全部菜单",
-#         "7": "退出工具",
-#     }
-#     print(Fore.BLUE + "==========菜单==========" + Fore.RESET)
-#     for key in functions_name:
-#         print(Fore.YELLOW + key + Fore.GREEN + ": " + functions_name[key] + Fore.RESET)
-
-
-# '''
-# func_dict = {
-#     "1": beian_query,
-#     "2": subdomain_scan,
-#     "3": port_scan,
-#     "4": retest_platform,
-#     "5": whois_query,
-#     "6": dns_query,
-#     "7": fofa,
-#     "8": shodan,
-#     "9": zoomeye,
-#     "10": eagle_eye,
-#     "11": google_hacking,
-#     "12": github_search,
-#     "13": cert_query,
-#     "14": domain_enum,
-#     "15": app_scan,
-#     "16": wechat_scan,
-#     "17": mini_program_scan,
-#     "18": pc_app_scan,
-#     "19": ip_to_domain,
-#     "20": real_ip_lookup,
-#     "21": ip_reg_query,
-#     "22": c_scan,
-#     "23": dir_scan,
-#     "24": alive_probe,
-#     "25": sensitive_asset_locate
-# }
-# '''
-
-
-# def extranet():
-#     while True:
-#         print_name1()
-#         user_input = input("选择数字,exit=>退出,menu=>菜单: ")
-
-
-# def intranet():
-#     while True:
-#         print_name2()
-#         user_input = input("请输入指令: ")
-#         if user_input == "exit":
-#             break
-#         elif user_input == "menu":
-#             print_name2()
-#         elif user_input == "1":
-#             print("Aopo")
-#         elif user_input == "2":
-#             print("SbScan")
-#         elif user_input == "3":
-#             print("Other")
-#         elif user_input == "4":
-#             print("Other")
-#         elif user_input == "5":
-#             print("Other")
-#         elif user_input == "6":
-#             break
-#         elif user_input == "7":
-#             print("Other")
-
-
-# def mode():
-#     print("1.内网渗透\n2.外网渗透")
-#     selcet = int(input("模式选择："))
-#     if selcet == 1:
-#         intranet()
-#     elif selcet == 2:
-#         extranet()
 
 
 com_1 = '''
@@ -223,7 +131,6 @@ def input_com():
             print("k")
         elif user_input == "12":
             github_search()
-            print("l")
         elif user_input == "13":
             print("m")
         elif user_input == "14":

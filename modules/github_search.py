@@ -1,6 +1,6 @@
 import requests
 
-from H4infoCollection.style import print_green, print_red
+from style import print_green, print_red
 
 
 def github_search(q):

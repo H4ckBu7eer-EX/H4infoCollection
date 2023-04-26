@@ -3,7 +3,7 @@ import json
 import requests
 from bs4 import BeautifulSoup
 
-from H4infoCollection.style import print_green, print_red
+from style import print_green, print_red
 
 
 def subdomain_scan(key):

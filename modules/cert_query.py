@@ -1,10 +1,7 @@
 import fofa
 
 
-apifile = open('fofaAPI.inf', 'r', encoding='utf-8').read()
-email = apifile.split('Email=')[1].split('Key=')[0].split('\n')[0]
-key = apifile.split('Email=')[1].split('Key=')[1].split('\n')[0]
-def cert_query(url):
+def cert_query(url,email,key):
     log=open('certlog.log','a',encoding='utf-8')
     print('同证书域名：')
     results=fofa.hightlevel_query(url,email,key,'cert')

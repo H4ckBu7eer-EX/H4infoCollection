@@ -3,7 +3,7 @@ import threading
 import requests
 from colorama import Fore, Back, Style
 
-from H4infoCollection.style import print_green, print_red
+from style import print_green,print_red
 
 
 def dir_scan(url, path: str):

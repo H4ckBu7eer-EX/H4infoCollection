@@ -69,18 +69,101 @@ alive_probe.alive_probe()
 ```
 
 
+功能使用指引：
+```
+存活探测模块：
+alive_probe.py
+使用:
+alive_probe.alive_probe(ip)
+ip:需要检测的目标IP地址，可以是域名或者纯IP
 
-更新日志
-====================
-4月20日更新：</br>
---------------------
-dec_rpc</br>
-调用：dec_rpc.dec_rpc()
-</br>
-原项目地址：https://github.com/Y0-kan/HostInfoScan/tree/main
-</br>
-app_scan </br>
-调用：app_scan.app_scan(url)</br>
-beian_query </br>
-调用：beian_query.beian_query(url)</br>
-shodanAPI配置文件</br>
+APP查询模块：
+app_scan.py
+使用：
+app_scan.app_scan(url,email,key)
+url为需要指定查询的目标网站
+email为你的fofaAPI邮箱
+key为你的fofaAPIKey
+
+备案查询模块：
+beian_query.py
+使用：
+beian_query.beian_query(url)
+url为需要指定查询的目标网站
+
+C段扫描模块：
+c_scan.py
+使用：
+    外网：
+        c_scan.c_scan_public(url,email,key)
+        url为目标网址，可以是域名和IP
+        email为你的fofaAPI邮箱
+        key为你的fofaAPIKey
+    内网：
+        c_scan.c_scan_lan_arp(ip)
+        ip为你的内网IP地址
+
+证书查询模块：
+cert_query.py
+使用：
+cert_query.cert_query(url,email,key)
+url为目标网址，可以是域名和IP
+email为你的fofaAPI邮箱
+key为你的fofaAPIKey
+
+DECRPC扫描模块：
+dec_rpc.py
+使用：
+导入模块按照指示即可
+
+目录扫描模块：
+dir_scan.py
+使用：
+直接导入
+或
+dir_scan.dir_scan_thread_main(url, file)
+url为目标网址，可以是域名和IP
+file为你的字典目录
+
+DNS扫描模块：
+dns_query.py
+使用:
+dns_query(domain,mode)
+domain为目标域名
+mode为你需要使用的模式，目前支持：
+A,MX,NS,CNAME
+模块默认为A
+
+FOFAAPI使用模块：
+fofa.py
+使用：
+normal_query(url,email,key)
+url为目标网址，可以是域名和IP
+email为你的fofaAPI邮箱
+key为你的fofaAPIKey
+或
+hightlevel_query(url,email,key,mod)
+url为目标网址，可以是域名和IP
+email为你的fofaAPI邮箱
+key为你的fofaAPIKey
+mod为你需要使用的高级搜索模式
+当前有
+C：C段扫描的支持
+cert:证书搜索的支持
+
+端口扫描模块:
+port_scan.py
+使用：
+    外网：
+        PublicNetPortScan(Ip_Address, email, key)
+        Ip_Address为目标Ip地址
+        email为你的fofaAPI邮箱
+        key为你的fofaAPIKey
+    内网：
+        LanPortScan(C_Lan_Ip_Address, port)
+        C_Lan_Ip_Address为内网IP地址
+        port为目标端口
+    或：
+    port_scan()根据引导即可
+
+```

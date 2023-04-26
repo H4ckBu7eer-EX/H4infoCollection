@@ -1,11 +1,11 @@
 import requests
 
 from H4infoCollection.moudlue.dir_scan import dir_scan
-from moudlue import scan_cms
-from moudlue.github_search import github_search
+from modules import scan_cms
+from modules.github_search import github_search
 from logo import *
 from style import print_red, print_blue, print_green, print_white, print_yellow, print_black
-from moudlue import beian_query, subdomain_scan, scan_js,dir_scan
+from modules import beian_query, subdomain_scan, scan_js,dir_scan
 
 # 0为内网渗透模式
 # 1为外网渗透模式

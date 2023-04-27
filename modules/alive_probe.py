@@ -1,44 +1,52 @@
-import os
-import subprocess
-from datetime import datetime
-
-from H4infoCollection.style import print_green, print_red
+from colorama import Fore
+from scapy.layers.inet import ICMP, TCP, UDP, IP, sr1
 
 
-def get_alive_probe(ip=None):
-    dt = datetime.today()
-    if (ip != "") or (not ip is None):
-        try:
-            # alive_probe = os.system('ping -c 1 -w 1 {}'.format(ip))
-            alive_probe = subprocess.run(["ping", "-c", "1", "-w", "1", "{}".format(ip)])
-            if alive_probe:
-                print_red('[+]啥也没有！')
-            else:
-                print_green('[+]扫描完成')
-                log = open('info.h4', 'a', encoding='utf-8')
-                log.write('''
-Time:{}\n
-Target:{}-alive'''.format(
-                    ('{}:{}:{}:{}:{}'.format(dt.year, dt.month, dt.day, dt.hour, dt.minute))
-                    , ip))
-
-        except Exception as ex:
-            print(ex)
+def scan_icmp(ip):
+    packet = IP(dst=ip) / ICMP()
+    ans = sr1(packet, timeout=0.5, verbose=0)
+    if ans:
+        print('    ' + Fore.GREEN + '[*]' + Fore.WHITE + ip + ' ICMP Online')
+        return 'online'
     else:
-        return
+        print('    ' + Fore.RED + '[!]' + Fore.WHITE + ip + ' ICMP Lost')
+        return 'offline'
 
 
-def main():
-    print_green('[+]当前模式为ICMP扫描')
-    print_red('退出请输入"退出/exit"')
-    while True:
-        url = input('请输入IP: ')
-        if '退出' == url or 'exit' == url:
-            break
-        else:
-            get_alive_probe(url)
-            print('=' * 10)
+def scan_tcp(ip):
+    packet = IP(dst=ip) / TCP()
+    ans = sr1(packet, timeout=5, verbose=0)
+    if ans:
+        if ans.getlayer(TCP).flags == 'SA':
+            print('    ' + Fore.GREEN + "[*]" + Fore.WHITE + ip + " TCP Open")
+            return 'SA'
+        if ans.getlayer(TCP).flags == 'RA':
+            print('    ' + Fore.YELLOW + "[!]" + Fore.WHITE + ip + " TCP Lost")
+            return 'RA'
 
 
-if __name__ == '__main__':
-    main()
+def scan_udp(ip):
+    """
+    注意！！！！！！
+    UDP只能用于扫描内网！！！！！
+    """
+    packet = IP(dst=ip) / UDP(dport=56789)
+    result = sr1(packet, timeout=0.5, verbose=0)
+    if int(result[IP].proto) == 0x01:
+        print('    ' + Fore.GREEN + '[*]' + Fore.WHITE + ip + ' UDP Online')
+        return 'online'
+    else:
+        print('    ' + Fore.RED + '[!]' + Fore.RED + ip + ' UDP Lost')
+        return 'offline'
+
+
+def alive_prove(ip, mod):
+    if mod == 'offline':
+        print(Fore.YELLOW + '模式：离线 ' + Fore.GREEN + ip + Fore.RESET + ' -->>')
+        scan_icmp(ip)
+        scan_tcp(ip)
+        scan_udp(ip)
+    if mod == 'online':
+        print(Fore.BLUE + '模式：在线 ' + Fore.GREEN + ip + Fore.RESET + ' -->>')
+        scan_icmp(ip)
+        scan_tcp(ip)

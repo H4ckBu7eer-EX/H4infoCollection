@@ -1,18 +1,20 @@
 import os
+import subprocess
 from datetime import datetime
 
+from H4infoCollection.style import print_green, print_red
 
-def alive_probe(ip):
+
+def get_alive_probe(ip=None):
     dt = datetime.today()
-    if ip != "":
+    if (ip != "") or (not ip is None):
         try:
-            print("注意！使用的是ICMP探测")
-            alive_probe = os.system('ping -c 1 -w 1 {}'.format(ip))
-
+            # alive_probe = os.system('ping -c 1 -w 1 {}'.format(ip))
+            alive_probe = subprocess.run(["ping", "-c", "1", "-w", "1", "{}".format(ip)])
             if alive_probe:
-                print('not alive!!')
+                print_red('[+]啥也没有！')
             else:
-                print('target alive!')
+                print_green('[+]扫描完成')
                 log = open('info.h4', 'a', encoding='utf-8')
                 log.write('''
 Time:{}\n
@@ -23,4 +25,20 @@ Target:{}-alive'''.format(
         except Exception as ex:
             print(ex)
     else:
-        print('请输入IP!')
+        return
+
+
+def main():
+    print_green('[+]当前模式为ICMP扫描')
+    print_red('退出请输入"退出/exit"')
+    while True:
+        url = input('请输入IP: ')
+        if '退出' == url or 'exit' == url:
+            break
+        else:
+            get_alive_probe(url)
+            print('=' * 10)
+
+
+if __name__ == '__main__':
+    main()

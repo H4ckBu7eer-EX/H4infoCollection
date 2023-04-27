@@ -108,7 +108,8 @@ def input_com():
             print_name1()
         # 备案查询
         elif user_input == "1":
-            beian_query.beian_query()
+            beian_query.main()
+        # 子域名查
         elif user_input == "2":
             subdomain_scan.subdomain_scan()
         elif user_input == "3":

@@ -7,8 +7,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="95966d43-4e86-429c-9a74-8d8fa4e53fe9" name="更改" comment="更新日志，各位写完后记得在里面说干了什么！！！各位写完后记得在里面说干了什么！！！各位写完后记得在里面说干了什么！！！">
-      <change beforePath="$PROJECT_DIR$/modules/beian_query.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/beian_query.py" afterDir="false" />
+    <list default="true" id="95966d43-4e86-429c-9a74-8d8fa4e53fe9" name="更改" comment="优化代码">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/scan_js.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/scan_js.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/run.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,12 +31,12 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "正在合并 main",
+    "git-widget-placeholder": "main",
     "last_opened_file_path": "C:/Users/alang/Documents/GitHub/H4infoCollection",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+    "settings.editor.selected.configurable": "settings.sync"
   }
 }]]></component>
-  <component name="RunManager" selected="Python.beian_query">
+  <component name="RunManager" selected="Python.run">
     <configuration name="alive_probe" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="H4infoCollection" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -98,27 +100,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="dns_query" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="H4infoCollection" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/moudlue" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/moudlue/dns_query.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="domain_enum" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="H4infoCollection" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -140,13 +121,34 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="run" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="H4infoCollection" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/run.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.run" />
         <item itemvalue="Python.beian_query" />
         <item itemvalue="Python.domain_enum" />
         <item itemvalue="Python.alive_probe" />
         <item itemvalue="Python.app_scan" />
-        <item itemvalue="Python.dns_query" />
       </list>
     </recent_temporary>
   </component>
@@ -346,6 +348,7 @@
     <MESSAGE value="完成子域名查询，采用bing搜索" />
     <MESSAGE value="修复fofaAPi支持代码块（E师傅你写归写，别动我写好的代码！！！好几个模块指望着这个这个函数运行呢！！！！！！！）" />
     <MESSAGE value="更新日志，各位写完后记得在里面说干了什么！！！各位写完后记得在里面说干了什么！！！各位写完后记得在里面说干了什么！！！" />
-    <option name="LAST_COMMIT_MESSAGE" value="更新日志，各位写完后记得在里面说干了什么！！！各位写完后记得在里面说干了什么！！！各位写完后记得在里面说干了什么！！！" />
+    <MESSAGE value="优化代码" />
+    <option name="LAST_COMMIT_MESSAGE" value="优化代码" />
   </component>
 </project>

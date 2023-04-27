@@ -5,7 +5,7 @@ from modules import scan_cms
 from modules.github_search import github_search
 from logo import *
 from style import print_red, print_blue, print_green, print_white, print_yellow, print_black
-from modules import beian_query, subdomain_scan, scan_js,dir_scan
+from modules import beian_query, subdomain_scan, scan_js,dir_scan,domain_enum
 
 # 0为内网渗透模式
 # 1为外网渗透模式
@@ -135,7 +135,7 @@ def input_com():
         elif user_input == "13":
             print("m")
         elif user_input == "14":
-            print("n")
+            domain_enum.domain_enum()
         elif user_input == "15":
             print("o")
         elif user_input == "16":

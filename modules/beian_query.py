@@ -1,9 +1,7 @@
 import requests
 import json
 
-from requests.packages import urllib3
-
-from H4infoCollection.style import print_green, print_red
+from style import print_green, print_red
 
 
 def beian_query(url):

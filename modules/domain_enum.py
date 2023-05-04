@@ -27,6 +27,7 @@ def domain_enum(domain):
             else:
                 Subdomain.append(subdomain)
                 print(Fore.GREEN + '[*]' + Fore.WHITE + subdomain)
+        return Subdomain
     print(len(Subdomain))
 
 

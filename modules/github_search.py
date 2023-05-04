@@ -9,6 +9,7 @@ def github_search(q):
     try:
         con = requests.get(f'https://api.github.com/search/repositories?q={q}').text
         print(con)
+        return con
     except TimeoutError:
         print_red('[+]已超时！请优化网络')
     except Exception as e:

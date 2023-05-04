@@ -19,6 +19,7 @@ def beian_query(url):
         if status == 'success':
             print_green(
                 f'姓名: {results["name"]}\n域名: {results["siteindex"]}\n类型: {results["nature"]}\nICP备案: {results["icp"]}\n备案时间: {results["time"]}')
+            return f'姓名: {results["name"]}\n域名: {results["siteindex"]}\n类型: {results["nature"]}\nICP备案: {results["icp"]}\n备案时间: {results["time"]}'
         else:
             print_red("[+]查询失败，可能该域名没有备案")
     except:

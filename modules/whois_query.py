@@ -11,3 +11,4 @@ def whois_query(url):
         if not data:
             break
     print(response.decode())
+    return response.decode()

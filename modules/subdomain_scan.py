@@ -16,6 +16,7 @@ def subdomain_scan(key):
         s.append(i)
     ret = json.dumps(s, ensure_ascii=False)
     print(ret)
+    return ret
 
 def main():
     print_green('[+]当前模式为子域名查询(该模式未必包含全部数据)')

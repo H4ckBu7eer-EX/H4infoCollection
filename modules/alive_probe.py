@@ -43,10 +43,14 @@ def scan_udp(ip):
 def alive_prove(ip, mod):
     if mod == 'offline':
         print(Fore.YELLOW + '模式：离线 ' + Fore.GREEN + ip + Fore.RESET + ' -->>')
-        scan_icmp(ip)
-        scan_tcp(ip)
-        scan_udp(ip)
+        icmp, tcp, udp = scan_icmp(ip), scan_tcp(ip), scan_udp(ip)
+        return [icmp, tcp, udp]
     if mod == 'online':
         print(Fore.BLUE + '模式：在线 ' + Fore.GREEN + ip + Fore.RESET + ' -->>')
-        scan_icmp(ip)
-        scan_tcp(ip)
+        icmp = scan_icmp(ip)
+        tcp = scan_tcp(ip)
+        return [icmp,tcp]
+
+
+
+

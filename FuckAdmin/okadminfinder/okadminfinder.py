@@ -8,7 +8,7 @@ import trio
 from trio import TrioDeprecationWarning
 import warnings
 
-from okadminfinder import _classes
+import _classes
 
 
 def main():

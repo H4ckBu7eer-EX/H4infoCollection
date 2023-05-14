@@ -101,6 +101,7 @@ def scan_cms_finger(url, headers, json_file):
                 con = get(url)
                 if i in con:
                     print(i)
+                    return i
     return '检测不到'
 
 

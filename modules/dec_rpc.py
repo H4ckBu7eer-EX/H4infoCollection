@@ -26,13 +26,15 @@ def get_ip_list(ip_str) -> list:
     else:
         if '-' in ip_str:
             for i in range(int(ip_str.split('-')[0].split('.')[3]), int(ip_str.split('-')[1]) + 1):
-                ip_list.append(ip_str.split('.')[0] + '.' + ip_str.split('.')[1] + '.' + ip_str.split('.')[2] + '.' + str(i))
+                ip_list.append(
+                    ip_str.split('.')[0] + '.' + ip_str.split('.')[1] + '.' + ip_str.split('.')[2] + '.' + str(i))
         elif '/' in ip_str:
             try:
                 for ip in ipaddress.IPv4Network(ip_str).hosts():
                     ip_list.append(str(ip))
             except ValueError:
-                ip_str = ip_str.split('.')[0] + '.' + ip_str.split('.')[1] +'.' + ip_str.split('.')[2] + '.' + '0' + '/24'
+                ip_str = ip_str.split('.')[0] + '.' + ip_str.split('.')[1] + '.' + ip_str.split('.')[
+                    2] + '.' + '0' + '/24'
                 for ip in ipaddress.IPv4Network(ip_str).hosts():
                     ip_list.append(str(ip))
         else:
@@ -83,7 +85,7 @@ def get_osinfo(ip):
         buffer_v2 = b"\x05\x00\x0b\x03\x10\x00\x00\x00\x78\x00\x28\x00\x03\x00\x00\x00\xb8\x10\xb8\x10\x00\x00\x00\x00\x01\x00\x00\x00\x01\x00\x01\x00\xa0\x01\x00\x00\x00\x00\x00\x00\xc0\x00\x00\x00\x00\x00\x00\x46\x00\x00\x00\x00\x04\x5d\x88\x8a\xeb\x1c\xc9\x11\x9f\xe8\x08\x00\x2b\x10\x48\x60\x02\x00\x00\x00\x0a\x02\x00\x00\x00\x00\x00\x00\x4e\x54\x4c\x4d\x53\x53\x50\x00\x01\x00\x00\x00\x07\x82\x08\xa2\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x06\x01\xb1\x1d\x00\x00\x00\x0f"
         sock.send(buffer_v2)
         packet2 = sock.recv(4096)
-        #print(packet2)
+        # print(packet2)
         digit = send_packet(ip)
         OS_Version_bytes = packet2[int('0xa0', 16) - 54 + 10:int('0xa0', 16) - 54 + 18]
         Major_Version = int.from_bytes(OS_Version_bytes[0:1], byteorder='little')
@@ -109,47 +111,49 @@ def get_osinfo(ip):
     finally:
         sock.close()
 
+
 def get_addres(ip):
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     try:
         sock.settimeout(TIME_OUT)
-        sock.connect((ip,135))
+        sock.connect((ip, 135))
         buffer_v1 = b"\x05\x00\x0b\x03\x10\x00\x00\x00\x48\x00\x00\x00\x01\x00\x00\x00\xb8\x10\xb8\x10\x00\x00\x00\x00\x01\x00\x00\x00\x00\x00\x01\x00\xc4\xfe\xfc\x99\x60\x52\x1b\x10\xbb\xcb\x00\xaa\x00\x21\x34\x7a\x00\x00\x00\x00\x04\x5d\x88\x8a\xeb\x1c\xc9\x11\x9f\xe8\x08\x00\x2b\x10\x48\x60\x02\x00\x00\x00"
         buffer_v2 = b"\x05\x00\x00\x03\x10\x00\x00\x00\x18\x00\x00\x00\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x05\x00"
         sock.send(buffer_v1)
         packet = sock.recv(1024)
         sock.send(buffer_v2)
         packet = sock.recv(4096)
-        #print(packet)
+        # print(packet)
         packet_v2 = packet[42:]
         packet_v2_end = packet_v2.find(b"\x09\x00\xff\xff\x00\x00")
         packet_v2 = packet_v2[:packet_v2_end]
         hostname_list = packet_v2.split(b"\x00\x00")
-        #print(hostname_list)
-        result = {ip:[]}
+        # print(hostname_list)
+        result = {ip: []}
         print("[*] " + ip + ' Network Info :')
         for h in hostname_list:
-            h = h.replace(b'\x07\x00',b'')
-            h = h.replace(b'\x00',b'')
+            h = h.replace(b'\x07\x00', b'')
+            h = h.replace(b'\x00', b'')
             if h == '':
                 continue
             if h.decode() != '':
                 print("\t[->]" + h.decode())
                 result[ip].append(h)
-        #print(result)
+        # print(result)
         return result
     except Exception as e:
         return -1
     finally:
         sock.close()
 
-def worker(q,a):
+
+def worker(q, a):
     while True:
         try:
             data = q.get()
             if a == 1:
                 result1 = get_osinfo(data)
-                if result1 != -1 :
+                if result1 != -1:
                     RESULT_LIST1.append(result1)
             elif a == 2:
                 result2 = get_addres(data)
@@ -169,21 +173,21 @@ def worker(q,a):
 
 def dec_rpc():
     print("==========DECRPC信息查询==========")
-    ip=input('请输入目标IP：')
-    threads=input('请输入线程（默认20,回车表示默认）：')
-    attack=input("请输入攻击模式：\n0.全部\n1.系统信息\n2.网络信息 (默认为0):")
+    ip = input('请输入目标IP：')
+    threads = input('请输入线程（默认20,回车表示默认）：')
+    attack = input("请输入攻击模式：\n0.全部\n1.系统信息\n2.网络信息 (默认为0):")
     if ip is None:
         print("Some Wrong.")
     q = Queue(20)
-    if threads !='' and attack!='':
+    if threads != '' and attack != '':
         for _ in range(int(threads)):
-            t = Thread(target=worker, args=(Queue(int(threads)),attack))
+            t = Thread(target=worker, args=(Queue(int(threads)), attack))
             t.daemon = True
             t.start()
     else:
         for _ in range(20):
-            t=Thread(target=worker,args=(q,0))
-            t.daemon=True
+            t = Thread(target=worker, args=(q, 0))
+            t.daemon = True
             t.start()
 
     ip_list = get_ip_list(ip)
@@ -192,7 +196,7 @@ def dec_rpc():
         q.put(i)
     q.join()
 
-    output=open('../log.txt', 'a', encoding='utf-8')
+    output = open('../log.txt', 'a', encoding='utf-8')
     for osinfo_dict in RESULT_LIST1:
         for ip in osinfo_dict.keys():
             output.write("[*] " + ip + "\n")
@@ -205,4 +209,3 @@ def dec_rpc():
             for other_ip in host[ip]:
                 if other_ip.decode() != '':
                     output.write("\t[->] " + other_ip.decode() + "\n")
-

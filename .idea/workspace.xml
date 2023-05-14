@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="3" />
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="95966d43-4e86-429c-9a74-8d8fa4e53fe9" name="更改" comment="优化代码">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/scan_js.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/scan_js.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/run.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2OlC3CoRFWc2XyCZraBMKYGGd3o" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/alang/Documents/GitHub/H4infoCollection",
+    "settings.editor.selected.configurable": "settings.sync"
+  }
+}]]></component>
+  <component name="RunManager" selected="Python.run">
+    <configuration name="alive_probe" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="H4infoCollection" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/modules" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/modules/alive_probe.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="app_scan" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="H4infoCollection" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/moudlue" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/moudlue/app_scan.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="beian_query" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="H4infoCollection" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/modules" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/modules/beian_query.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="domain_enum" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="H4infoCollection" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/modules" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/modules/domain_enum.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="run" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="H4infoCollection" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/run.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.run" />
+        <item itemvalue="Python.beian_query" />
+        <item itemvalue="Python.domain_enum" />
+        <item itemvalue="Python.alive_probe" />
+        <item itemvalue="Python.app_scan" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="95966d43-4e86-429c-9a74-8d8fa4e53fe9" name="更改" comment="" />
+      <created>1682125580021</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1682125580021</updated>
+    </task>
+    <task id="LOCAL-00001" summary="集成fofaAPI的获取功能，优化C段扫描">
+      <created>1682127143370</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1682127143370</updated>
+    </task>
+    <task id="LOCAL-00002" summary="集成fofaAPI的获取功能，优化C段扫描">
+      <created>1682127778567</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1682127778567</updated>
+    </task>
+    <task id="LOCAL-00003" summary="集成fofaAPI的获取功能，优化C段扫描">
+      <created>1682246562002</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1682246562002</updated>
+    </task>
+    <task id="LOCAL-00004" summary="优化C段扫描，增加输出C段扫描日志，增加局域网C段扫描，增加输出局域网C端扫描日志">
+      <created>1682247519739</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1682247519739</updated>
+    </task>
+    <task id="LOCAL-00005" summary="fofaAPI更新高级搜索语法的证书搜索，cert_query.py完成同证书域名信息搜集">
+      <created>1682248953318</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1682248953318</updated>
+    </task>
+    <task id="LOCAL-00006" summary="完善目录扫描">
+      <created>1682249865156</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1682249865156</updated>
+    </task>
+    <task id="LOCAL-00007" summary="修复dir_scan的导入模块问题&#10;增加dns查询模块,dns查询包含dns_query和dns_log两个函数，dns_query为查询,dns_log为记录保存">
+      <created>1682419664651</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1682419664651</updated>
+    </task>
+    <task id="LOCAL-00008" summary="更新调用方式和使用方式">
+      <created>1682421456560</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1682421456560</updated>
+    </task>
+    <task id="LOCAL-00009" summary="精简fofaAPI的调用,精简模块代码">
+      <created>1682421494532</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1682421494532</updated>
+    </task>
+    <task id="LOCAL-00010" summary="精简fofaAPI的调用,精简模块代码">
+      <created>1682421515461</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1682421515461</updated>
+    </task>
+    <task id="LOCAL-00011" summary="精简fofaAPI的调用,精简模块代码,删除模块内多余的APi调用">
+      <created>1682421538894</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1682421538894</updated>
+    </task>
+    <task id="LOCAL-00012" summary="精简fofaAPI的调用,精简模块代码,删除模块内多余的APi调用">
+      <created>1682421551965</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1682421551965</updated>
+    </task>
+    <task id="LOCAL-00013" summary="精简模块代码，设置默认模式为A">
+      <created>1682421574262</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1682421574262</updated>
+    </task>
+    <task id="LOCAL-00014" summary="精简模块代码，删除部分不必要的模块，集成fofaAPI的调用，删除模块内多余的fofaAPI调用">
+      <created>1682421608587</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1682421608587</updated>
+    </task>
+    <task id="LOCAL-00015" summary="更改错误的命名">
+      <created>1682422244699</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1682422244699</updated>
+    </task>
+    <task id="LOCAL-00016" summary="删除无用文件">
+      <created>1682422505431</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1682422505432</updated>
+    </task>
+    <task id="LOCAL-00017" summary="更新存活探测，增加ICMP,TCP,UDP探测">
+      <created>1682593409749</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1682593409749</updated>
+    </task>
+    <task id="LOCAL-00018" summary="优化备案查询模块导入">
+      <created>1682593428716</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1682593428716</updated>
+    </task>
+    <task id="LOCAL-00019" summary="优化证书查询代码">
+      <created>1682593449426</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1682593449426</updated>
+    </task>
+    <task id="LOCAL-00020" summary="完成子域名查询，采用bing搜索">
+      <created>1682593476468</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1682593476468</updated>
+    </task>
+    <task id="LOCAL-00021" summary="修复fofaAPi支持代码块（E师傅你写归写，别动我写好的代码！！！好几个模块指望着这个这个函数运行呢！！！！！！！）">
+      <created>1682593521817</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1682593521817</updated>
+    </task>
+    <task id="LOCAL-00022" summary="更新日志，各位写完后记得在里面说干了什么！！！各位写完后记得在里面说干了什么！！！各位写完后记得在里面说干了什么！！！">
+      <created>1682593558949</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1682593558949</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="集成fofaAPI的获取功能，优化C段扫描" />
+    <MESSAGE value="优化C段扫描，增加输出C段扫描日志，增加局域网C段扫描，增加输出局域网C端扫描日志" />
+    <MESSAGE value="fofaAPI更新高级搜索语法的证书搜索，cert_query.py完成同证书域名信息搜集" />
+    <MESSAGE value="完善目录扫描" />
+    <MESSAGE value="修复dir_scan的导入模块问题&#10;增加dns查询模块,dns查询包含dns_query和dns_log两个函数，dns_query为查询,dns_log为记录保存" />
+    <MESSAGE value="更新调用方式和使用方式" />
+    <MESSAGE value="精简fofaAPI的调用,精简模块代码" />
+    <MESSAGE value="精简fofaAPI的调用,精简模块代码,删除模块内多余的APi调用" />
+    <MESSAGE value="精简模块代码，设置默认模式为A" />
+    <MESSAGE value="精简模块代码，删除部分不必要的模块，集成fofaAPI的调用，删除模块内多余的fofaAPI调用" />
+    <MESSAGE value="更改错误的命名" />
+    <MESSAGE value="删除无用文件" />
+    <MESSAGE value="更新存活探测，增加ICMP,TCP,UDP探测" />
+    <MESSAGE value="优化备案查询模块导入" />
+    <MESSAGE value="优化证书查询代码" />
+    <MESSAGE value="完成子域名查询，采用bing搜索" />
+    <MESSAGE value="修复fofaAPi支持代码块（E师傅你写归写，别动我写好的代码！！！好几个模块指望着这个这个函数运行呢！！！！！！！）" />
+    <MESSAGE value="更新日志，各位写完后记得在里面说干了什么！！！各位写完后记得在里面说干了什么！！！各位写完后记得在里面说干了什么！！！" />
+    <MESSAGE value="优化代码" />
+    <option name="LAST_COMMIT_MESSAGE" value="优化代码" />
+  </component>
+</project>

@@ -10,14 +10,18 @@ def dir_scan(url, path: str):
     if (not path == '') or (not path is None):
         path = path.replace('\n', '')
     test_url = url + path
+    pathlist=[]
     try:
         code = requests.get(test_url)
         if code.status_code == 200:
             print(f"{Fore.GREEN}[+][{len(code.text)}]{Fore.WHITE}{test_url} Code:{Fore.GREEN}{code.status_code}{Fore.RESET}")
+            pathlist.append(test_url+' Code:'+code.status_code)
         elif code == 403:
             print(f"{Fore.YELLOW}[!][{len(code.text)}]{Fore.WHITE}{test_url} Code:{Fore.YELLOW}{code.status_code}{Fore.RESET}")
+            pathlist.append(test_url + ' Code:' + code.status_code)
         elif code == 302:
             print(f"{Fore.YELLOW}[!][{len(code.text)}]{Fore.WHITE}{test_url} Code:{Fore.YELLOW}{code.status_code}{Fore.RESET}")
+            pathlist.append(test_url + ' Code:' + code.status_code)
     except:
         pass
 

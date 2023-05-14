@@ -5,7 +5,7 @@ from modules import scan_cms
 from modules.github_search import github_search
 from logo import *
 from style import print_red, print_blue, print_green, print_white, print_yellow, print_black
-from modules import beian_query, subdomain_scan, scan_js,dir_scan
+from modules import beian_query, subdomain_scan, scan_js,dir_scan,domain_enum
 
 # 0为内网渗透模式
 # 1为外网渗透模式
@@ -43,39 +43,23 @@ com = '''
 
 
 def print_name1():
-    functions_name = {
-        "1": "备案查询",
-        "2": "子域名",
-        "3": "端口扫描",
-        "4": "重测平台",
-        "5": "whois查询",
-        "6": "dns查询",
-        "7": "FOFA",
-        "8": "SHODAN",
-        "9": "ZOOMEYE",
-        "10": "鹰眼",
-        "11": "搜索引擎 HACKING",
-        "12": "github搜索",
-        "13": "证书查询",
-        "14": "域名枚举",
-        "15": "APP扫描",
-        "16": "公众号扫描",
-        "17": "小程序扫描",
-        "18": "PC应用程序扫描",
-        "19": "IP反查域名",
-        "20": "真实IP查找",
-        "21": "IP注册信息查询",
-        "22": "C段扫描",
-        "23": "目录扫描",
-        "24": "存活探测",
-        "25": "敏感资产定位",
-        "26": "JS信息提取",
-        "27": "CMS指纹扫描",
+    functions_name = [
+        ("1", "|备案查询", "10", " |鹰眼", "           19", "    |IP反查域名"),
+        ("2", "|子域名", " 11", "  |搜索引擎 HACKING", "          20", "    |真实IP查找"),
+        ("3", "|端口扫描", "12", " |github搜索", "           21", "    |IP注册信息查询"),
+        ("4", "|重测平台", "13", " |证书查询", "         22", "    |C段扫描"),
+        ("5", "|whois查询", "  14", "   |域名枚举", "           23", "    |目录扫描"),
+        ("6", "|dns查询", "  15", "   |APP扫描", "             24", "    |存活探测"),
+        ("7", "|FOFA", "    16", "    |公众号扫描", "           25", "    |敏感资产定位"),
+        ("8", "|SHODAN", "    17", "    |小程序扫描", "           26", "    |JS信息提取"),
+        ("9", "|ZOOMEYE", "    18", "    |PC应用程序扫描", "          27", "    |CMS指纹扫描")
+    ]
+    print(Fore.BLUE + "==========菜单==========".ljust(30) + Fore.RESET)
+    for i in range(0, 9):
+        print(Fore.YELLOW + functions_name[i][0].ljust(5) + Fore.GREEN + " " + functions_name[i][1].ljust(15) + Fore.YELLOW + functions_name[i][2].ljust(5) + Fore.GREEN + " " + functions_name[i][3].ljust(15) + Fore.YELLOW + functions_name[i][4].ljust(5) + Fore.GREEN + " " + functions_name[i][5].ljust(15) + Fore.RESET)
 
-    }
-    print(Fore.BLUE + "==========菜单==========" + Fore.RESET)
-    for key in functions_name:
-        print(Fore.YELLOW + key + Fore.GREEN + ": " + functions_name[key] + Fore.RESET)
+
+
 
 
 com_1 = '''
@@ -135,7 +119,7 @@ def input_com():
         elif user_input == "13":
             print("m")
         elif user_input == "14":
-            print("n")
+            domain_enum.domain_enum()
         elif user_input == "15":
             print("o")
         elif user_input == "16":

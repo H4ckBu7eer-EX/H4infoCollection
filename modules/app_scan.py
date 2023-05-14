@@ -8,3 +8,4 @@ def app_scan(url, email, key):
     product = results['product']
     for products in product:
         print(Fore.GREEN + '[*]' + Fore.WHITE + products)
+    return product

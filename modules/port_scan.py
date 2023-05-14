@@ -15,6 +15,7 @@ def PublicNetPortScan(Ip_Address, email, key):
     ports = results['port']
     for aliveport in ports:
         print(f'{Fore.GREEN}[*]{Fore.WHITE}{Ip_Address}:{aliveport}')
+        return f'[*]{Ip_Address}:{aliveport}'
 
 
 def LanPortScan(C_Lan_Ip_Address, port):
@@ -30,8 +31,10 @@ def LanPortScan(C_Lan_Ip_Address, port):
                     if response.haslayer(TCP):
                         if response.getlayer(TCP).flags == 18:
                             print(f"{Fore.GREEN}[*]{Fore.WHITE}{C_Lan_Ip_Address}:{ port} Open!")
+                            return f"[*]{C_Lan_Ip_Address}:{ port} Open!"
                         else:
                             print(f"{Fore.RED}[!]{Fore.WHITE}{C_Lan_Ip_Address}:{port} Close!")
+                            return f"[*]{C_Lan_Ip_Address}:{port} Close!"
             except Exception as ex:
                 print(ex)
         else:
@@ -49,7 +52,7 @@ def port_scan():
         if iface != "":
             C_Lan_Ip = GetLanIpAddress(iface)
             for i in range(0, 65535):
-                scanthreading = threading.Thread(LanPortScan(C_Lan_Ip, i))
+                scanthreading = threading.Thread(target=LanPortScan,args=(C_Lan_Ip, i,))
                 scanthreading.start()
     if index == 2:
         ipaddress = input("请输入需要扫描的外网IP:")
